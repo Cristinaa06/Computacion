@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class Notas {
+    public static void main(String[] args) {
+        float individual, grupal, examen, notaFinal = 0.0f;
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ingrese la evaluacion individual (0 a 10):");
+        individual = sc.nextFloat();
+        System.out.println("Ingrese el trabajo grupal (0 a 10):");
+        grupal = sc.nextFloat();
+        System.out.println("Ingrese la evaluacion final (0 a 10):");
+        examen = sc.nextFloat();
+
+        if (individual < 0 || individual > 10 ||
+            grupal < 0 || grupal > 10 ||
+            examen < 0 || examen > 10) {
+
+            System.out.println("Error: las calificaciones deben estar entre 0 y 10");
+
+        } else {
+            notaFinal = individual * 0.30f + grupal * 0.30f + examen * 0.40f;
+
+            System.out.println("Evaluacion individual: " + individual);
+            System.out.println("Trabajo grupal: " + grupal);
+            System.out.println("Evaluacion final: " + examen);
+            System.out.println("Promedio ponderado: " + notaFinal);
+
+            if (notaFinal >= 9) {
+                System.out.println("Nivel de desempeno: Excelente");
+            } else if (notaFinal >= 8) {
+                System.out.println("Nivel de desempeno: Muy bueno");
+            } else if (notaFinal >= 7) {
+                System.out.println("Nivel de desempeno: Bueno");
+            } else if (notaFinal >= 5) {
+                System.out.println("Nivel de desempeno: Regular");
+            } else {
+                System.out.println("Nivel de desempeno: Deficiente");
+            }
+
+            if (notaFinal >= 7) {
+                System.out.println("Estado: Aprobado");
+            } else {
+                System.out.println("Estado: Reprobado");
+            }
+
+            if (notaFinal < 7) {
+                System.out.println("El estudiante requiere refuerzo academico");
+            } else if (notaFinal >= 9) {
+                System.out.println("Felicitaciones! Rendimiento sobresaliente");
+            }
+        }
+
+        sc.close();
+    }
+}
